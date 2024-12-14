@@ -1,5 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
+-- For rose-pine
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").dawn
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -8,11 +10,12 @@ local act = wezterm.action
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "rose-pine"
-config.font = wezterm.font("ZedMono Nerd Font Mono")
-config.font_size = 16.0
+config.font = wezterm.font("InputMono Nerd Font")
+config.font_size = 12.0
 config.window_background_opacity = 0.93
 config.hide_tab_bar_if_only_one_tab = true
+config.colors = theme.colors()
+config.window_frame = theme.window_frame()
 
 -- Keybinding
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
